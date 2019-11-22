@@ -8,8 +8,11 @@ Vue.use(VueRouter)
 
 import avaVueRegisterComponent from '../src/index.js'
 Vue.use(avaVueRegisterComponent, {
-    domain: 'https://register-api.avgpro.cn.test',
-    signature: 111,
+    // validateFormLogic: 'validate-form-logic', // 注册逻辑组件
+    // progressButton: 'progress-button', // 执行中状态按钮
+
+    domain: 'https://register-api.avgpro.cn.test', // 自定义注册域名
+    signature: 'avatrade', // 短信签名
 })
 
 new Vue({
