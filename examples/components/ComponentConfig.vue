@@ -144,14 +144,14 @@
 
                 slotItems: [
                      // , , , ,
-                    {name: 'form', type: 'Object', description: '可以通过<strong>form</strong>释放出对应的属性和方法，比如 <pre>form.name用户名</pre> <pre>form.email邮箱</pre> <pre>form.phone手机号</pre> <pre>form.verify_code验证码</pre> <pre>form.extra.account交易账号</pre> <pre>form.extra.source</pre>等字段，以及一些表单在提交到后台验证的时候错误提示，通过<pre>form.errors.has(\'字段名\')</pre>判断是否存在错误，<pre>form.errors.first(\'字段名\')</pre>获取对应字段的第一个错误内容，<pre>form.errors.clear($event.target.name)</pre>清空表单错误'},
+                    {name: 'form', type: 'Object', description: '可以通过<strong>form</strong>释放出对应的属性和方法，比如 <pre>form.name用户名</pre> <pre>form.email邮箱</pre> <pre>form.phone手机号</pre> <pre>form.verify_code验证码</pre> <pre>form.extra.account交易账号</pre> <pre>form.extra.source来源渠道</pre>等字段，以及一些表单在提交到后台验证的时候错误提示，通过<pre>form.errors.has(\'字段名\')</pre>判断是否存在错误，<pre>form.errors.first(\'字段名\')</pre>获取对应字段的第一个错误内容，<pre>form.errors.clear($event.target.name)</pre>清空表单错误'},
                     {name: 'isProcessing', type: 'Boolean', description: '表单是否正在提交，一般用来做表单提交按钮的状态展现'},
                     {name: 'formSubmitHandle', type: 'Function', description: '<strong>固定写法</strong> 绑定在表单Form的<pre>@submit="formSubmitHandle"</pre>处'},
-                    {name: 'verifyCodeForm', type: 'Object', description: '可用通过<strong>verifyCodeForm</strong>释放处对应的属性和方法，比如：<pre>verifyCodeForm.errors.has(\'phone\')</pre> <pre>verifyCodeForm.errors.first(\'phone\')</pre>'},
-                    {name: 'verifyCodeSendHandle', type: 'Function', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>@click.native="verifyCodeSendHandle"</pre>处'},
-                    {name: 'verifyCodeCanBeSend', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>v-if="verifyCodeCanBeSend"</pre>处，用于标示是否是在处理验证码发送逻辑'},
-                    {name: 'verifyCodeTotalTimer', type: 'Number', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>{{ verifyCodeTotalTimer }}</pre>处，用于标示发送验证码的倒计时'},
-                    {name: 'verifyCodeIsProcessing', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>:processing="verifyCodeIsProcessing"</pre>处，用于标示验证码发送状态的切换'},
+                    {name: 'verifyCodeForm', type: 'Object', description: '可用通过<strong>verifyCodeForm</strong>释放处对应的属性和方法，比如：<pre>verifyCodeForm.errors.has(\'phone\')</pre> <pre>verifyCodeForm.errors.first(\'phone\')</pre>，且必须是有发送验证码逻辑才有个方法'},
+                    {name: 'verifyCodeSendHandle', type: 'Function', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>@click.native="verifyCodeSendHandle"</pre>处，且必须是有发送验证码逻辑才有个方法'},
+                    {name: 'verifyCodeCanBeSend', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>v-if="verifyCodeCanBeSend"</pre>处，用于标示是否是在处理验证码发送逻辑，且必须是有发送验证码逻辑才有个方法'},
+                    {name: 'verifyCodeTotalTimer', type: 'Number', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>{{ verifyCodeTotalTimer }}</pre>处，用于标示发送验证码的倒计时，且必须是有发送验证码逻辑才有个方法'},
+                    {name: 'verifyCodeIsProcessing', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>:processing="verifyCodeIsProcessing"</pre>处，用于标示验证码发送状态的切换，且必须是有发送验证码逻辑才有个方法'},
 
 
 
