@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto">
         <h3 class="mt-6 text-2xl font-semibold text-gray-700">组件配置</h3>
 
         <div class="mt-4 font-bold">
@@ -8,9 +8,9 @@
         </div>
 
         <div class="mt-2 px-4">
-            <div class="mt-2 text-xl font-bold">组件属性</div>
+            <div class="mt-2 text-xl font-bold">属性</div>
 
-            <table class="table-auto">
+            <table class="w-full table-auto">
                 <thead>
                 <tr>
                     <th class="px-4 py-2">属性名称</th>
@@ -37,9 +37,9 @@
         </div>
 
         <div class="mt-2 px-4">
-            <div class="mt-2 text-xl font-bold">组件方法</div>
+            <div class="mt-2 text-xl font-bold">方法</div>
 
-            <table class="table-auto">
+            <table class="w-full table-auto">
                 <thead>
                 <tr>
                     <th class="px-4 py-2">方法名称</th>
@@ -57,13 +57,35 @@
             </table>
         </div>
 
+        <div class="mt-2 px-4">
+            <div class="mt-2 text-xl font-bold">插槽</div>
+
+            <table class="w-full table-auto">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">名称</th>
+                        <th class="px-4 py-2">类型</th>
+                        <th class="px-4 py-2">说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in slotItems">
+                        <td class="border px-4 py-2" v-text="item.name"></td>
+                        <td class="border px-4 py-2" v-text="item.type"></td>
+                        <td class="border px-4 py-2 text-sm" v-html="item.description"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
         <div class="mt-4 font-bold">
             <pre>progress-button</pre>
             组件
         </div>
 
 
-        <table class="table-auto">
+        <table class="w-full table-auto">
             <thead>
             <tr>
                 <th class="px-4 py-2">属性名称</th>
@@ -118,6 +140,21 @@
                         default_value: 'NULL',
                         description: '其他表单参数，比如：交易账号 <pre>extra.account</pre>，渠道来源数据 <pre>extra.source</pre>'
                     },
+                ],
+
+                slotItems: [
+                     // , , , ,
+                    {name: 'form', type: 'Object', description: '可以通过<strong>form</strong>释放出对应的属性和方法，比如 <pre>form.name用户名</pre> <pre>form.email邮箱</pre> <pre>form.phone手机号</pre> <pre>form.verify_code验证码</pre> <pre>form.extra.account交易账号</pre> <pre>form.extra.source</pre>等字段，以及一些表单在提交到后台验证的时候错误提示，通过<pre>form.errors.has(\'字段名\')</pre>判断是否存在错误，<pre>form.errors.first(\'字段名\')</pre>获取对应字段的第一个错误内容，<pre>form.errors.clear($event.target.name)</pre>清空表单错误'},
+                    {name: 'isProcessing', type: 'Boolean', description: '表单是否正在提交，一般用来做表单提交按钮的状态展现'},
+                    {name: 'formSubmitHandle', type: 'Function', description: '<strong>固定写法</strong> 绑定在表单Form的<pre>@submit="formSubmitHandle"</pre>处'},
+                    {name: 'verifyCodeForm', type: 'Object', description: '可用通过<strong>verifyCodeForm</strong>释放处对应的属性和方法，比如：<pre>verifyCodeForm.errors.has(\'phone\')</pre> <pre>verifyCodeForm.errors.first(\'phone\')</pre>'},
+                    {name: 'verifyCodeSendHandle', type: 'Function', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>@click.native="verifyCodeSendHandle"</pre>处'},
+                    {name: 'verifyCodeCanBeSend', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>v-if="verifyCodeCanBeSend"</pre>处，用于标示是否是在处理验证码发送逻辑'},
+                    {name: 'verifyCodeTotalTimer', type: 'Number', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>{{ verifyCodeTotalTimer }}</pre>处，用于标示发送验证码的倒计时'},
+                    {name: 'verifyCodeIsProcessing', type: 'Boolean', description: '<strong>固定写法</strong> 绑定在发送验证码按钮<pre>:processing="verifyCodeIsProcessing"</pre>处，用于标示验证码发送状态的切换'},
+
+
+
                 ],
 
                 callbackItems: [
