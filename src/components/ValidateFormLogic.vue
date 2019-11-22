@@ -45,11 +45,6 @@
                 default: window.location.href
             },
 
-            email_required: {
-                type: Boolean,
-                default: false,
-            },
-
             extra: {
                 type: Object,
                 required: false
