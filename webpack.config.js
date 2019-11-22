@@ -29,7 +29,7 @@ module.exports = {
 
     resolve: {
         alias: { // 设置别名
-            '@': path.resolve('src')// @ 指向 src/ 目录
+            '@': PATHS.src, // @ 指向 src/ 目录
         }
     },
 

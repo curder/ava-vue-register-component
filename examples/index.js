@@ -5,8 +5,8 @@ import router from "./router";
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import avaVueComponents from '../src/index.js';
-Vue.use(avaVueComponents);
+import avaVueRegisterComponent from '../src/index.js';
+Vue.use(avaVueRegisterComponent);
 
 new Vue({
     router,

@@ -39,6 +39,7 @@
     "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "form-backend-validation": "^2.3.9",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "purgecss-webpack-plugin": "^1.6.0",
