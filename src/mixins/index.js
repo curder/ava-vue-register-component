@@ -1,7 +1,6 @@
 import Form from 'form-backend-validation'
 
 import {bus_events} from '../configs/events.js'
-import {SMS_VERIFY_CODE_URL} from '../configs/urls.js'
 import {sms_signatures} from '../configs/signatures.js'
 import fields from '../configs/fields.js'
 import rules from '../configs/rules.js'
@@ -27,8 +26,8 @@ export default {
     },
 
     computed: {
-        verifyCodeFormAction() { // // 手机号发送验证码地址
-            return SMS_VERIFY_CODE_URL
+        verifyCodeFormAction() { // 手机号发送验证码地址
+            return this.$ava.register.sms_verify_code_url
         }
     },
 

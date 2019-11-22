@@ -2,7 +2,6 @@
     import Form from "form-backend-validation";
 
     import {bus_events} from "../configs/events.js";
-    import { SMS_REGISTER_URL } from "../configs/urls.js";
 
     import smsRegisterMixin from "../mixins/index.js";
 
@@ -59,7 +58,7 @@
 
         computed: {
             verifyCodeAction() {
-                return SMS_REGISTER_URL;
+                return this.$ava.register.sms_register_url;
             }
         },
 
