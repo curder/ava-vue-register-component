@@ -58,11 +58,11 @@ export default {
             this.form.errors.clear(fields.phone) // 清空手机号字段错误
             this.verifyCodeForm.errors.clear() // 清空错误
             this.countDown() // 倒计时
-            this.$emit(bus_events.sms_verify_code_sent_successful, response)
+            this.$emit(bus_events.verify_code_sent_successful, response)
         },
 
         verifyCodeSentFailHandle(error) { // 短信发送失败
-            this.$emit(bus_events.sms_verify_code_sent_fail, error.response)
+            this.$emit(bus_events.verify_code_sent_fail, error.response)
         },
 
         countDown() { // 倒计时

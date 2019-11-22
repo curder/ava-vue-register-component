@@ -1,15 +1,15 @@
 <template>
     <div class="flex justify-center items-center flex-1">
-        <validate-form-logic :request_type_id="1"
+        <validate-form-logic :request_type_id="2"
                       request_name="测试"
-                      @register-fail="smsRegisterFail"
-                      @register-successful="smsRegisterSuccessful"
-                      @verify-code-sent-successful="verifyCodeSentSuccessful"
-                      @verify-code-sent-fail="verifyCodeSentFail">
-            <div class="p-8 border rounded bg-white" slot-scope="{ form, isProcessing, formSubmitHandle, verifyCodeSendHandle, verifyCodeForm, verifyCodeCanBeSend, verifyCodeTotalTimer, verifyCodeIsProcessing }" v-cloak>
+                      is_email
+                      @register-fail="registerFailHandle"
+                      @register-successful="registerSuccessfulHandle">
+            <div class="p-8 border rounded bg-white" slot-scope="{ form, isProcessing, formSubmitHandle }" v-cloak>
 
-                <h2 class="text-center text-2xl font-semibold font-sans text-gray-600">手机号注册</h2>
+                <h2 class="text-center text-2xl font-semibold font-sans text-gray-600">邮箱注册</h2>
                 <form class="mt-2 text-gray-900"
+                      style="min-width: 260px;"
                       @submit.prevent="formSubmitHandle"
                       @keydown="form.errors.clear($event.target.name)"
                       @keyup="form.errors.clear($event.target.name)">
@@ -32,36 +32,12 @@
                                placeholder="手机号码"
                                class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
                                v-model="form.phone"
-                               :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('phone') || verifyCodeForm.errors.has('phone')}">
-                        <div v-if="form.errors.has('phone') || verifyCodeForm.errors.has('phone')"
-                             v-text="form.errors.first('phone') || verifyCodeForm.errors.first('phone')"
+                               :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('phone')}">
+                        <div v-if="form.errors.has('phone')"
+                             v-text="form.errors.first('phone')"
                              class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"></div>
                     </div>
-                    <div class="form-field mb-4">
-                        <div class="flex items-center justify-center items-center border border-gray-300">
-                            <input type="text"
-                                   name="verify_code"
-                                   placeholder="验证码"
-                                   class="h-10 w-1/2 rounded-l px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
-                                   v-model="form.verify_code"
-                                   :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('verify_code')}"
-                            >
-                            <progress-button type="button"
-                                             v-if="verifyCodeCanBeSend"
-                                             :processing="verifyCodeIsProcessing"
-                                             @click.native="verifyCodeSendHandle"
-                                             class="cursor-pointer w-1/2 py-1 rounded-r underline focus:outline-none text-999 text-blue-600 text-center">获取验证码</progress-button>
-                            <progress-button type="button"
-                                             v-else
-                                             class="w-1/2 py-1 rounded-r focus:outline-none cursor-not-allowed text-999 text-xs text-center">
-                                <span>{{ verifyCodeTotalTimer }}</span>秒后重新获取
-                            </progress-button>
-                        </div>
-                        <div v-if="form.errors.has('verify_code')"
-                             v-text="form.errors.first('verify_code')"
-                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
-                        ></div>
-                    </div>
+
                     <div class="form-field mb-4">
                         <input type="text"
                                placeholder="邮箱"
@@ -88,8 +64,8 @@
 
                     <div class="form-button pt-2">
                         <progress-button type="submit"
-                                :processing="isProcessing"
-                                class="h-10 tracking-widest w-full text-white px-10 rounded py-1 bg-form-button bg-f89 focus:outline-none bg-green-500 hover:bg-green-400">提交</progress-button>
+                                         :processing="isProcessing"
+                                         class="h-10 tracking-widest w-full text-white px-10 rounded py-1 bg-form-button bg-f89 focus:outline-none bg-green-500 hover:bg-green-400">提交</progress-button>
                     </div>
                 </form>
 
@@ -101,19 +77,11 @@
 <script>
     export default {
         methods: {
-            verifyCodeSentSuccessful() { // 手机号验证成功
+            registerFailHandle() { // 注册失败
 
             },
 
-            verifyCodeSentFail() { // 手机号验证失败
-                this.$refs.phone.focus();
-            },
-
-            smsRegisterFail() { // 注册失败
-
-            },
-
-            smsRegisterSuccessful() { // 注册成功
+            registerSuccessfulHandle() { // 注册成功
 
             },
         }

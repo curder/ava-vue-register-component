@@ -1,9 +1,9 @@
 // Import asset file.
 import './assets/sass/index.scss'
 
-import default_params from './configs/sites/avatrade.cn/prod.js'
+import * as default_params from './configs/sites/avatrade.cn/prod.js'
 
-import ValidateSms from './components/ValidatedSms.vue'
+import ValidateFormLogic from './components/ValidateFormLogic.vue'
 import ProgressButton from './components/ProgressButton.vue'
 
 const Plugin = {
@@ -18,13 +18,14 @@ const Plugin = {
             return {
                 sms_verify_code_url: `${domain}/${prefix}/registers/by-sms/send-code`,
                 sms_signature_name: signature,
-                sms_register_url: `${domain}/${prefix}/registers/by-sms`
+                sms_register_url: `${domain}/${prefix}/registers/by-sms`,
+                email_register_url: `${domain}/${prefix}/registers/by-email`
             }
         }
 
         Vue.prototype.$ava.register = getRegisterParamsObject(params.domain, params.signature)
         Vue.component('progress-button', ProgressButton) // 状态按钮
-        Vue.component('validate-sms', ValidateSms) // 手机号验证
+        Vue.component('validate-form-logic', ValidateFormLogic) // 手机号验证
     }
 }
 

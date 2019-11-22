@@ -7,6 +7,9 @@
                 <span class="mx-4 text-gray-500">|</span>
 
                 <router-link class="font-semibold text-gray-700 hover:underline" :to="{name: 'sms-register'}">手机短信注册表单</router-link>
+                <span class="mx-4 text-gray-500">|</span>
+
+                <router-link class="font-semibold text-gray-700 hover:underline" :to="{name: 'email-register'}">邮箱注册表单</router-link>
 
             </div>
             <div class="mt-2">

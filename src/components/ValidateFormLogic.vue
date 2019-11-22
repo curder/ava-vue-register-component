@@ -54,11 +54,18 @@
                 type: Object,
                 required: false
             },
+
+            is_email: {
+                type: Boolean,
+                default: false,
+            }
         },
 
         computed: {
-            verifyCodeAction() {
-                return this.$ava.register.sms_register_url;
+            formSubmitAction() {
+                return this.is_email
+                    ? this.$ava.register.email_register_url
+                    : this.$ava.register.sms_register_url;
             }
         },
 
@@ -66,13 +73,13 @@
             async onSubmit() {
                 this.processing = true;
                 try {
-                    const response = await this.form[this.method](this.verifyCodeAction);
+                    const response = await this.form[this.method](this.formSubmitAction);
                     this.processing = false;
-                    this.$emit(bus_events.sms_register_successful, response);
+                    this.$emit(bus_events.register_successful, response);
                 } catch (error) {
                     this.processing = false;
                     if (error.response.status === 422) {
-                        this.$emit(bus_events.sms_register_fail, error.response);
+                        this.$emit(bus_events.register_fail, error.response);
                     }
                 }
             }

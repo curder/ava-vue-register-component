@@ -1,7 +1,7 @@
 export const bus_events = {
-    sms_register_fail: 'sms-register-fail',
-    sms_register_successful: 'sms-register-successful',
+    register_fail: 'register-fail',
+    register_successful: 'register-successful',
 
-    sms_verify_code_sent_fail: 'verify-code-sent-fail',
-    sms_verify_code_sent_successful: 'sms-verify-code-sent-successful',
+    verify_code_sent_fail: 'verify-code-sent-fail',
+    verify_code_sent_successful: 'verify-code-sent-successful',
 }
