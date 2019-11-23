@@ -54,7 +54,7 @@
                             <progress-button type="button"
                                              v-else
                                              class="w-1/2 py-1 rounded-r focus:outline-none cursor-not-allowed text-999 text-xs text-center">
-                                <span>{{ verifyCodeTotalTimer }}</span>秒后重新获取
+                                <span v-text="verifyCodeTotalTimer"></span>秒后重新获取
                             </progress-button>
                         </div>
                         <div v-if="form.errors.has('verify_code')"
