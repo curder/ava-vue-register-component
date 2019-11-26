@@ -31,7 +31,7 @@
             },
 
             request_type_id: {
-                type: Number,
+                type: [Number, String],
                 required: true
             },
 
