@@ -49,7 +49,7 @@ Vue.use(avaVueRegisterComponent, {
 | `@register-fail` | 表单注册失败后的回调，比如弹出提示层 |
 | `@register-successful` | 表单注册成功后的回调，比如添加页面跳转，添加下载操作 |
 | `@verify-code-sent-successful` | 手机验证码发送成功后执行的回调函数 **在组件属性 `is_email` 存在的时候会存在** |
-| `@verify-code-sent-fail | 手机验证码发送失败后z执行的回调函数 **在组件属性 `is_email` 不存在的时候会存在** |
+| `@verify-code-sent-fail` | 手机验证码发送失败后z执行的回调函数 **在组件属性 `is_email` 不存在的时候会存在** |
 
 - 插槽
 

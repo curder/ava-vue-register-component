@@ -70,8 +70,8 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in slotItems">
-                        <td class="border px-4 py-2" v-text="item.name"></td>
-                        <td class="border px-4 py-2" v-text="item.type"></td>
+                        <td class="border px-4 py-2"><pre v-text="item.name"></pre></td>
+                        <td class="border px-4 py-2"><pre v-text="item.type"></pre></td>
                         <td class="border px-4 py-2 text-sm" v-html="item.description"></td>
                     </tr>
                 </tbody>
