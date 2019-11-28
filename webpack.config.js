@@ -1,7 +1,7 @@
 let path = require('path')
 const glob = require('glob')
-const chokidar = require('chokidar')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const chokidar = require('chokidar')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 将css提取到单独的文件
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin') // 将css文件压缩体积
 const PurgecssPlugin = require('purgecss-webpack-plugin')
