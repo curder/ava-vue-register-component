@@ -77,6 +77,7 @@ export default {
 
         resetCountDown() { // 重置倒计时
             this.verifyCodeCanBeSend = true
+            this.verifyCodeIsProcessing = false // 修改按钮状态
             clearInterval(this.verifyCodeTimer)
         },
     }
