@@ -40,7 +40,6 @@ Vue.use(avaVueRegisterComponent, {
 | `request_name` | `true` | `NULL` | 请求名称，可以是页面的名称，通俗易懂即可 |
 | `is_email` | `true` | `NULL` | 如果表单类型是邮箱注册，则传值 `is_email` 属性，**如果是手机注册类型则不需要传这个属性** |
 | `request_url` | `false` | `NULL` | 请求地址，如果不填默认获取当前组件所在页面地址 |
-| `extra` | `false` | `NULL` | 其他表单参数，比如：交易账号 `extra.account`，渠道来源数据 `extra.source` |
 
 - 方法
 

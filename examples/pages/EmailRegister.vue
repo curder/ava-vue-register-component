@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center items-center flex-1">
-        <validate-form-logic :request_type_id="2"
+        <validate-form-logic request_type_id="rk49F1D3On3w"
                       request_name="测试"
                       is_email
                       @register-fail="registerFailHandle"

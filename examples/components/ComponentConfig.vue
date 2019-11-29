@@ -134,12 +134,6 @@
                         default_value: 'NULL',
                         description: '请求地址，如果不填默认获取当前组件所在页面地址'
                     },
-                    {
-                        name: 'extra',
-                        is_required: false,
-                        default_value: 'NULL',
-                        description: '其他表单参数，比如：交易账号 <pre>extra.account</pre>，渠道来源数据 <pre>extra.source</pre>'
-                    },
                 ],
 
                 slotItems: [
@@ -166,7 +160,7 @@
                     },
                     {
                         name: '@verify-code-sent-fail',
-                        description: '手机验证码发送<strong>失败后</strong>z执行的回调函数 <strong>在组件属性<pre>is_email</pre>不存在的时候会存在</strong>'
+                        description: '手机验证码发送<strong>失败后</strong>执行的回调函数 <strong>在组件属性<pre>is_email</pre>不存在的时候会存在</strong>'
                     },
                 ],
             }

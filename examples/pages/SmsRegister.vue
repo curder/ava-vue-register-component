@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center items-center flex-1">
-        <validate-form-logic :request_type_id="1"
+        <validate-form-logic request_type_id="Bp0G0O0Orn9g"
                       request_name="测试"
                       @register-fail="smsRegisterFail"
                       @register-successful="smsRegisterSuccessful"
