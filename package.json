@@ -2,7 +2,7 @@
   "name": "@curder/ava-vue-register-component",
   "description": "ava vue注册组件",
   "author": "curder <q.curder@gmail.com>",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "dist/main.js",
   "keywords": [

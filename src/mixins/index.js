@@ -5,23 +5,26 @@ import { sms_signatures } from '../configs/signatures.js';
 import fields from '../configs/fields.js';
 import rules from '../configs/rules.js';
 
-export default {
-  data() {
-    return {
-      verifyCodeTimer: null, // 倒计时
-      verifyCodeCanBeSend: true, // 是否能发送验证码状态
-      verifyCodeTotalTimer: 60, // 60s倒计时
-      phone: fields.phone, // 手机号字段名
-      verifyCodeIsProcessing: false, // 验证码提交状态
+const verifyCodeTotalTimer = 60;
 
-      verifyCodeForm: new Form({
-        request_type_id: this.request_type_id,
-        request_name: this.request_name,
-        request_url: this.request_url,
-        phone: '',
-        phone_rule: rules.phone_required,
-        signature: sms_signatures.default // 添加自定义签名
-      })
+
+export default {
+    data() {
+        return {
+            verifyCodeTimer: null, // 倒计时
+            verifyCodeCanBeSend: true, // 是否能发送验证码状态
+            verifyCodeTotalTimer: verifyCodeTotalTimer, // 60s倒计时
+            phone: fields.phone, // 手机号字段名
+            verifyCodeIsProcessing: false, // 验证码提交状态
+
+            verifyCodeForm: new Form({
+                request_type_id: this.request_type_id,
+                request_name: this.request_name,
+                request_url: this.request_url,
+                phone: '',
+                phone_rule: rules.phone_required,
+                signature: sms_signatures.default // 添加自定义签名
+            })
     }
   },
 
@@ -84,11 +87,11 @@ export default {
       }, 1000)
     },
 
-    resetCountDown() {
-      // 重置倒计时
-      this.verifyCodeCanBeSend = true
-      this.verifyCodeIsProcessing = false // 修改按钮状态
-      clearInterval(this.verifyCodeTimer)
+    resetCountDown() { // 重置倒计时
+        this.verifyCodeCanBeSend = true
+        this.verifyCodeIsProcessing = false // 修改按钮状态
+        this.verifyCodeTotalTimer = verifyCodeTotalTimer // 修正时间
+        clearInterval(this.verifyCodeTimer)
     }
   }
 }
