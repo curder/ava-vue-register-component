@@ -1,5 +1,4 @@
 <template>
-
     <div class="flex justify-center items-center flex-1">
         <validate-form-logic request_type_id="9qIyq8c4vryJ"
                              request_name="测试"
@@ -60,8 +59,7 @@
                         </div>
                         <div v-if="form.errors.has('verify_code')"
                              v-text="form.errors.first('verify_code')"
-                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
-                        ></div>
+                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"></div>
                     </div>
                     <div class="form-field mb-4">
                         <input type="text"
@@ -71,8 +69,7 @@
                                class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white">
                         <div v-if="form.errors.has('email')"
                              v-text="form.errors.first('email')"
-                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
-                        ></div>
+                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"></div>
                     </div>
 
                     <div class="form-field mb-2">
@@ -83,22 +80,7 @@
                                class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white">
                         <div v-if="form.errors.has('extra.account')"
                              v-text="form.errors.first('extra.account')"
-                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
-                        ></div>
-                    </div>
-
-                    <div class="form-field mb-2">
-                        <input
-                                type="text"
-                                placeholder="交易账号"
-                                v-model="form.extra.account"
-                                :class="{'bg-red-100 border-red-300 focus:border-red-300': form.errors.has('extra.account')}"
-                                class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"/>
-                        <div
-                                v-if="form.errors.has('extra.account')"
-                                v-text="form.errors.first('extra.account')"
-                                class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
-                        ></div>
+                             class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"></div>
                     </div>
 
                     <div class="form-button pt-2">
