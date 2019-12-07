@@ -1,9 +1,9 @@
 <template>
     <div class="flex justify-center items-center flex-1">
-        <validate-form-logic request_type_id="9qIyq8c4vryJ"
-                             request_name="测试"
-                             @register-fail="smsRegisterFail"
-                             @register-successful="smsRegisterSuccessful"
+        <validate-form-logic :request_type_id="type"
+                             :request_name="name"
+                             @register-fail="registerFailHandle"
+                             @register-successful="registerSuccessfulHandle"
                              @verify-code-sent-successful="verifyCodeSentSuccessful"
                              @verify-code-sent-fail="verifyCodeSentFail">
             <div class="p-8 border rounded bg-white" slot-scope="{ form, isProcessing, formSubmitHandle, verifyCodeSendHandle, verifyCodeForm, verifyCodeCanBeSend, verifyCodeTotalTimer, verifyCodeIsProcessing }" v-cloak>
@@ -99,6 +99,12 @@
 
 <script>
     export default {
+        data() {
+          return {
+              type: '9qIyq8c4vryJ',
+              name: '测试',
+          };
+        },
         methods: {
             verifyCodeSentSuccessful() {
                 // 手机号验证成功
@@ -109,11 +115,15 @@
                 this.$refs.phone.focus();
             },
 
-            smsRegisterFail() {
-                // 注册失败
+            registerFailHandle({status, data}) { // 注册失败
+                if(status === 422) {
+                    let {message, errors} = data;
+                    console.error(message);
+                    console.error(JSON.stringify(errors));
+                }
             },
 
-            smsRegisterSuccessful() {
+            registerSuccessfulHandle() {
                 // 注册成功
             }
         }

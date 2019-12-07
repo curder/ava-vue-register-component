@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center items-center flex-1">
-        <validate-form-logic request_type_id="rk49F1D3On3w"
-                      request_name="测试"
+        <validate-form-logic :request_type_id="type"
+                      :request_name="name"
                       is_email
                       @register-fail="registerFailHandle"
                       @register-successful="registerSuccessfulHandle">
@@ -76,9 +76,19 @@
 
 <script>
     export default {
+        data() {
+            return {
+                type: 'Cqa7zwav3ENN1',
+                name: '测试',
+            };
+        },
         methods: {
-            registerFailHandle() { // 注册失败
-
+            registerFailHandle({status, data}) { // 注册失败
+                if(status === 422) {
+                    let {message, errors} = data;
+                    console.error(message);
+                    console.error(JSON.stringify(errors));
+                }
             },
 
             registerSuccessfulHandle() { // 注册成功
