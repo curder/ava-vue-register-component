@@ -3,8 +3,7 @@
     <h3 class="mt-6 text-2xl font-semibold text-gray-700">组件配置</h3>
 
     <div class="mt-4 font-bold">
-      <pre>validate-form-logic</pre>
-      组件
+      <pre>validate-form-logic</pre>组件
     </div>
 
     <div class="mt-2 px-4">
@@ -70,8 +69,12 @@
         </thead>
         <tbody>
           <tr v-for="item in slotItems">
-            <td class="border px-4 py-2"><pre v-text="item.name"></pre></td>
-            <td class="border px-4 py-2"><pre v-text="item.type"></pre></td>
+            <td class="border px-4 py-2">
+              <pre v-text="item.name"></pre>
+            </td>
+            <td class="border px-4 py-2">
+              <pre v-text="item.type"></pre>
+            </td>
             <td class="border px-4 py-2 text-sm" v-html="item.description"></td>
           </tr>
         </tbody>
@@ -79,8 +82,7 @@
     </div>
 
     <div class="mt-4 font-bold">
-      <pre>progress-button</pre>
-      组件
+      <pre>progress-button</pre>组件
     </div>
 
     <table class="w-full table-auto">
@@ -94,12 +96,16 @@
       </thead>
       <tbody>
         <tr>
-          <td class="border px-4 py-2"><pre>processing</pre></td>
-          <td class="border px-4 py-2"><pre>false</pre></td>
-          <td class="border px-4 py-2"><pre>false</pre></td>
           <td class="border px-4 py-2">
-            通过这个属性可以控制按钮的状态，一般使用它来提示用户对表单的操作反馈
+            <pre>processing</pre>
           </td>
+          <td class="border px-4 py-2">
+            <pre>false</pre>
+          </td>
+          <td class="border px-4 py-2">
+            <pre>false</pre>
+          </td>
+          <td class="border px-4 py-2">通过这个属性可以控制按钮的状态，一般使用它来提示用户对表单的操作反馈</td>
         </tr>
       </tbody>
     </table>
@@ -126,7 +132,7 @@ export default {
         {
           name: "is_email",
           is_required: false,
-          default_value: "NULL",
+          default_value: "false",
           description:
             "如果表单类型是邮箱注册，则传值<pre>is_email</pre>属性，<strong>如果是手机注册类型则不需要传这个属性</strong>"
         },
