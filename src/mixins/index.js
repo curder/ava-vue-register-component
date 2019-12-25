@@ -1,11 +1,11 @@
-import Form from 'form-backend-validation';
+import Form from 'form-backend-validation'
 
-import { bus_events } from '../configs/events.js';
-import { sms_signatures } from '../configs/signatures.js';
-import fields from '../configs/fields.js';
-import rules from '../configs/rules.js';
+import { bus_events } from '../configs/events.js'
+import { sms_signatures } from '../configs/signatures.js'
+import fields from '../configs/fields.js'
+import rules from '../configs/rules.js'
 
-const verifyCodeTotalTimer = 60;
+const verifyCodeTotalTimer = 60
 
 
 export default {
