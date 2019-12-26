@@ -71,21 +71,30 @@ export default {
     async onSubmit() {
       this.processing = true;
 
-      if (!this.email_required && !this.form.email) {
-        // 邮箱必须填且不为空的时候传递给后端
-        delete this.form.email;
-      }
-
       try {
-        const response = await this.form[this.method](this.formSubmitAction);
-        this.processing = false;
+        const response = await this.createRequest();
+
+        this.processing = false; // 重置表单提交状态
+
         this.$emit(bus_events.register_successful, response);
       } catch (error) {
-        this.processing = false;
+        this.processing = false; // 重置表单提交状态
         if (error.response.status === 422) {
           this.$emit(bus_events.register_fail, error.response);
         }
       }
+    },
+    createRequest() {
+      if (!this.email_required && !this.form.email) {
+        // 当邮箱字段选填，且用户没有填写
+        delete this.form.email; // 删除提交时候的email字段
+      }
+
+      this.$emit(bus_events.register_will_be_send, {
+        form: this.form
+      });
+
+      return this.form[this.method](this.formSubmitAction);
     }
   },
   watch: {

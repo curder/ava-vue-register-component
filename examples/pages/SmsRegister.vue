@@ -3,10 +3,12 @@
     <validate-form-logic
       :request_type_id="type"
       :request_name="name"
+      @verify-code-will-be-send="verifyCodeWillBeSendHandle"
+      @verify-code-sent-successful="verifyCodeSentSuccessfulHandle"
+      @verify-code-sent-fail="verifyCodeSentFailHandle"
+      @register-will-be-send="registerWillBeSendHandle"
       @register-fail="registerFailHandle"
       @register-successful="registerSuccessfulHandle"
-      @verify-code-sent-successful="verifyCodeSentSuccessful"
-      @verify-code-sent-fail="verifyCodeSentFail"
     >
       <div
         class="p-8 border rounded bg-white"
@@ -134,13 +136,23 @@ export default {
     };
   },
   methods: {
-    verifyCodeSentSuccessful() {
+    verifyCodeWillBeSendHandle({ form }) {
+      // 发送验证码之前
+      // console.log(form);
+    },
+
+    verifyCodeSentSuccessfulHandle() {
       // 手机号验证成功
     },
 
-    verifyCodeSentFail() {
+    verifyCodeSentFailHandle() {
       // 手机号验证失败
       this.$refs.phone.focus();
+    },
+
+    registerWillBeSendHandle({ form }) {
+      // 表单注册之前
+      // console.log(form);
     },
 
     registerFailHandle({ status, data }) {

@@ -203,12 +203,9 @@ export default {
 
       callbackItems: [
         {
-          name: "@register-fail",
-          description: "表单注册失败后的回调，比如弹出提示层"
-        },
-        {
-          name: "@register-successful",
-          description: "表单注册成功后的回调，比如添加页面跳转，添加下载操作"
+          name: "@verify-code-will-be-send",
+          description:
+            "手机验证码发送之前执行的回调函数 <strong>在组件属性 <pre>is_email</pre> 不存在的时候会存在</strong>"
         },
         {
           name: "@verify-code-sent-successful",
@@ -219,6 +216,18 @@ export default {
           name: "@verify-code-sent-fail",
           description:
             "手机验证码发送<strong>失败后</strong>执行的回调函数 <strong>在组件属性<pre>is_email</pre>不存在的时候会存在</strong>"
+        },
+        {
+          name: "@register-will-be-send",
+          description: "表单注册提交之前的回调，比如需要将数据进行处理"
+        },
+        {
+          name: "@register-fail",
+          description: "表单注册失败后的回调，比如弹出提示层"
+        },
+        {
+          name: "@register-successful",
+          description: "表单注册成功后的回调，比如添加页面跳转，添加下载操作"
         }
       ]
     };
