@@ -14,6 +14,7 @@ export default {
         name: "", // 用户名
         email: "", // 邮箱
         phone: null, // 手机号
+        source: "", // 渠道来源
         request_type_id: this.request_type_id, // 页面类型
         request_name: this.request_name, // 页面名称
         request_url: this.request_url, // 页面地址

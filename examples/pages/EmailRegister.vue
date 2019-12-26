@@ -13,7 +13,9 @@
         slot-scope="{ form, isProcessing, formSubmitHandle }"
         v-cloak
       >
-        <h2 class="text-center text-2xl font-semibold font-sans text-gray-600">邮箱注册</h2>
+        <h2 class="text-center text-2xl font-semibold font-sans text-gray-600">
+          邮箱注册
+        </h2>
         <form
           class="mt-2 text-gray-900"
           style="min-width: 260px;"
@@ -28,7 +30,11 @@
               placeholder="姓名"
               class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white focus:outline-none focus:shadow-lg"
               v-model="form.name"
-              :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('name')}"
+              :class="{
+                'bg-red-100 border-red-300 focus:border-red-300': form.errors.has(
+                  'name'
+                )
+              }"
             />
             <div
               v-if="form.errors.has('name')"
@@ -44,7 +50,11 @@
               placeholder="手机号码"
               class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
               v-model="form.phone"
-              :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('phone')}"
+              :class="{
+                'bg-red-100 border-red-300 focus:border-red-300': form.errors.has(
+                  'phone'
+                )
+              }"
             />
             <div
               v-if="form.errors.has('phone')"
@@ -58,7 +68,11 @@
               type="text"
               placeholder="邮箱"
               v-model="form.email"
-              :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('email')}"
+              :class="{
+                'bg-red-100 border-red-300 focus:border-red-300': form.errors.has(
+                  'email'
+                )
+              }"
               class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
             />
             <div
@@ -73,7 +87,11 @@
               type="text"
               placeholder="交易账号"
               v-model="form.extra.account"
-              :class="{'bg-red-100 border-red-300 focus:border-red-300' : form.errors.has('extra.account')}"
+              :class="{
+                'bg-red-100 border-red-300 focus:border-red-300': form.errors.has(
+                  'extra.account'
+                )
+              }"
               class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
             />
             <div
@@ -83,12 +101,37 @@
             ></div>
           </div>
 
+          <div class="form-field mb-2">
+            <select
+              v-model="form.source"
+              :class="{
+                'bg-red-100 border-red-300 focus:border-red-300': form.errors.has(
+                  'source'
+                )
+              }"
+              class="h-10 w-full border border-gray-300 rounded px-3 py-1 hover:bg-white outline-none focus:border-gray-500 focus:bg-white"
+            >
+              <option value="">何种渠道了解爱华</option>
+              <option
+                v-for="source in sources"
+                value="source"
+                v-text="source"
+              ></option>
+            </select>
+            <div
+              v-if="form.errors.has('source')"
+              v-text="form.errors.first('source')"
+              class="form-field-error -mb-4 text-left text-xs text-red-500 truncate"
+            ></div>
+          </div>
+
           <div class="form-button pt-2">
             <progress-button
               type="submit"
               :processing="isProcessing"
               class="h-10 tracking-widest w-full text-white px-10 rounded py-1 bg-form-button bg-f89 focus:outline-none bg-green-500 hover:bg-green-400"
-            >提交</progress-button>
+              >提交</progress-button
+            >
           </div>
         </form>
       </div>
@@ -97,7 +140,10 @@
 </template>
 
 <script>
+import sources from "../../src/mixins/sources.js";
+
 export default {
+  mixins: [sources],
   data() {
     return {
       type: "Cqa7zwav3ENN1",
