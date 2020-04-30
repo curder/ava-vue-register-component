@@ -17,7 +17,9 @@ const Plugin = {
     params = Object.assign({}, default_params, params)
 
     // 注册私有属性
-    Vue.prototype.$ava = {}
+    if (Object.keys(Vue.prototype.$ava).length === 0) {
+      Vue.prototype.$ava = {}
+    }
     Vue.prototype.$ava.register = getRegisterParamsObject(
       params.domain,
       params.signature
