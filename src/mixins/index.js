@@ -22,7 +22,7 @@ export default {
         request_url: this.request_url,
         phone: "",
         phone_rule: rules.phone_required,
-        signature: sms_signatures.default // 添加自定义签名
+        signature: this.$ava.register.sms_signature_name, // 添加自定义签名配置
       })
     };
   },
