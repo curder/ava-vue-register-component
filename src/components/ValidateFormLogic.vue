@@ -99,12 +99,14 @@ export default {
     }
   },
   watch: {
-    extra: {
+    'form.extra': {
       // 表单额外的数据
       handler(value, oldValue) {
         this.form.extra = value;
+        console.log(value);
       },
-      immediate: true, // 将立即以表达式的当前值触发回调，修复extra数据丢失的问题
+      deep: true,
+      // immediate: true, // 将立即以表达式的当前值触发回调，修复extra数据丢失的问题
     },
 
     request_type_id(value) {
