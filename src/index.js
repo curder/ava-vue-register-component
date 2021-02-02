@@ -20,10 +20,15 @@ const Plugin = {
     if (Vue.prototype.$ava == undefined) {
       Vue.prototype.$ava = {}
     }
-    Vue.prototype.$ava.register = getRegisterParamsObject(
-      params.domain,
-      params.signature
-    )
+
+    Vue.prototype.$ava.register = getRegisterParamsObject({
+      domain: params.domain,
+      signature: params.signature,
+      prefix: params.prefix,
+      verify_code_path: params.verify_code_path,
+      sms_register_path: params.sms_register_path,
+      email_register_path: params.email_register_path,
+    })
 
     // 注册组件
     Vue.component(progressButton || 'progress-button', ProgressButton) // 状态按钮

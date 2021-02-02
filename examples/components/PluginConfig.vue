@@ -57,7 +57,35 @@ export default {
           default_value: "progress-button",
           description:
             "状态按钮组件的自定义名称，如果与现有系统冲突可以使用自定义组件来避免"
-        }
+        },
+        {
+          name: "prefix",
+          is_required: false,
+          default_value: "api/v1",
+          description:
+            "注册地址前缀，配置了这个值之后不需要在每个请求都添加对应的前缀"
+        },
+        {
+          name: "verify_code_path",
+          is_required: false,
+          default_value: "registers/by-sms/send-code",
+          description:
+            "发送手机验证码地址，如果发送验证码地址跟默认值不一致，可以通过传递参数来重写"
+        },
+        {
+          name: "sms_register_path",
+          is_required: false,
+          default_value: "registers/by-sms",
+          description:
+            "手机号注册路径，如果注册地址跟默认值不一致，可以通过传递参数来重写"
+        },
+        {
+          name: "email_register_path",
+          is_required: false,
+          default_value: "registers/by-email",
+          description:
+            "邮箱注册路径，如果注册地址跟默认值不一致，可以通过传递参数来重写"
+        },
       ]
     };
   }
