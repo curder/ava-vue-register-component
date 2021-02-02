@@ -1,12 +1,14 @@
+import {API_PREFIX, SMS_VERIFY_CODE, SMS_REGISTER, EMAIL_REGISTER} from './urls.js'
+
 export default (params) => {
     const {
         domain,
         signature,
-        prefix = `api/v1`,
-        verify_code_path = `registers/by-sms/send-code`,
-        sms_register_path = `registers/by-sms`,
-        email_register_path = `registers/by-email`,
-      } = params;
+        prefix = API_PREFIX,
+        verify_code_path = SMS_VERIFY_CODE,
+        sms_register_path = SMS_REGISTER,
+        email_register_path = EMAIL_REGISTER,
+    } = params
 
     return {
         sms_verify_code_url: `${domain}/${prefix}/${verify_code_path}`,

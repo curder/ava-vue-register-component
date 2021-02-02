@@ -1,6 +1,6 @@
 <template>
-  <button class="relative" :disabled="processing">
-    <span :class="{ 'invisible': processing }">
+  <button class="relative" v-bind:disabled="processing">
+    <span v-bind:class="{ 'invisible': processing }">
       <slot />
     </span>
 

@@ -1,9 +1,7 @@
 <script>
-import Form from "form-backend-validation";
-
-import { bus_events } from "../configs/events.js";
-
-import smsRegisterMixin from "../mixins/index.js";
+import Form from 'form-backend-validation';
+import {bus_events} from '../configs/events.js';
+import smsRegisterMixin from '../mixins/index.js';
 
 export default {
   mixins: [smsRegisterMixin],
@@ -11,14 +9,14 @@ export default {
   data() {
     return {
       form: new Form({
-        name: "", // 用户名
-        email: "", // 邮箱
+        name: '', // 用户名
+        email: '', // 邮箱
         phone: null, // 手机号
-        source: "", // 渠道来源
+        source: '', // 渠道来源
         request_type_id: this.request_type_id, // 页面类型
         request_name: this.request_name, // 页面名称
         request_url: this.request_url, // 页面地址
-        verify_code: "",
+        verify_code: '',
         extra: {} // 其他内容
       }),
       processing: false // 表单提交状态
@@ -27,7 +25,7 @@ export default {
 
   props: {
     method: {
-      default: "post"
+      default: 'post'
     },
 
     request_type_id: {
@@ -63,8 +61,8 @@ export default {
   computed: {
     formSubmitAction() {
       return this.is_email
-        ? this.$ava.register.email_register_url
-        : this.$ava.register.sms_register_url;
+          ? this.$ava.register.email_register_url
+          : this.$ava.register.sms_register_url;
     }
   },
 
@@ -111,7 +109,7 @@ export default {
 
     request_type_id(value) {
       // 表单类型ID值，需要后端程序提供
-      let data = { request_type_id: value };
+      let data = {request_type_id: value};
       this.form.populate(data);
       this.verifyCodeForm.populate(data);
     }
