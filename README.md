@@ -16,17 +16,25 @@ Vue.use(avaVueRegisterComponent, {
 
     domain: 'https://register-api.avgpro.cn.test', // 自定义注册域名
     signature: 'avatrade', // 短信签名
+    prefix = `api/v1`,
+    verify_code_path = `registers/by-sms/send-code`,
+    sms_register_path = `registers/by-sms`,
+    email_register_path = `registers/by-email`,
 });
 ```
 
 ### 插件配置
 
-| 属性名称            | 是否必填 | 默认值                           | 说明                                                                 |
-| ------------------- | -------- | -------------------------------- | -------------------------------------------------------------------- |
-| `domain`            | `true`   | `https://register-api.avadev.cn` | 自定义注册域名，需要根据项目，已经项目的运行环境配置                 |
-| `signature`         | `true`   | `avatrade`                       | 自定义签名，需要根据项目实际情况配置，如果不清楚可以询问后台开发     |
-| `validateFormLogic` | `false`  | `validate-form-logic`            | 注册组件的自定义名称，如果与现有系统冲突可以使用自定义组件来避免     |
-| `progressButton`    | `false`  | `progress-button`                | 状态按钮组件的自定义名称，如果与现有系统冲突可以使用自定义组件来避免 |
+| 属性名称              | 是否必填 | 默认值                           | 说明                                                                         |
+| --------------------- | -------- | -------------------------------- | ---------------------------------------------------------------------------- |
+| `domain`              | `true`   | `https://register-api.avadev.cn` | 自定义注册域名，需要根据项目，已经项目的运行环境配置                         |
+| `signature`           | `true`   | `avatrade`                       | 自定义签名，需要根据项目实际情况配置，如果不清楚可以询问后台开发             |
+| `validateFormLogic`   | `false`  | `validate-form-logic`            | 注册组件的自定义名称，如果与现有系统冲突可以使用自定义组件来避免             |
+| `progressButton`      | `false`  | `progress-button`                | 状态按钮组件的自定义名称，如果与现有系统冲突可以使用自定义组件来避免         |
+| `prefix`              | `false`  | `api/v1`                         | 注册地址前缀，配置了这个值之后不需要在每个请求都添加对应的前缀               |
+| `verify_code_path`    | `false`  | `registers/by-sms/send-code`     | 发送手机验证码地址，如果发送验证码地址跟默认值不一致，可以通过传递参数来重写 |
+| `sms_register_path`   | `false`  | `registers/by-sms`               | 手机号注册路径，如果注册地址跟默认值不一致，可以通过传递参数来重写           |
+| `email_register_path` | `false`  | `registers/by-email`             | 邮箱注册路径，如果注册地址跟默认值不一致，可以通过传递参数来重写             |
 
 ### 组件配置
 
@@ -64,6 +72,3 @@ Vue.use(avaVueRegisterComponent, {
 | `verifyCodeCanBeSend`    | `Boolean`  | **固定写法** 绑定在发送验证码按钮`v-if="verifyCodeCanBeSend"`处，用于标示是否是在处理验证码发送逻辑，且必须是有发送验证码逻辑才有个方法                                                                                                                                                                                                                                                              |
 | `verifyCodeTotalTimer`   | `Number`   | **固定写法** 绑定在发送验证码按钮`{{ verifyCodeTotalTimer }}`处，用于标示发送验证码的倒计时，且必须是有发送验证码逻辑才有个方法                                                                                                                                                                                                                                                                      |
 | `verifyCodeIsProcessing` | `Boolean`  | **固定写法** 绑定在发送验证码按钮`:processing="verifyCodeIsProcessing"`处，用于标示验证码发送状态的切换，且必须是有发送验证码逻辑才有个方法                                                                                                                                                                                                                                                          |
-
-
-
